@@ -22,8 +22,8 @@ namespace autoBot {
     const PARKING_GEAR = 0;
     const REVERSE_GEAR = 20;
 
-    const ECHO_PIN     = 1;
-    const TRIGGER_PIN  = 0;
+    const ECHO_PIN     = 0;
+    const TRIGGER_PIN  = 1;
     const MAX_DISTANCE = 500
 
     /**
