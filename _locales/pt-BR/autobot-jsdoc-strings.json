@@ -1,0 +1,14 @@
+{
+  "autoBot.backward": "Mova o autobot para trás a uma velocidade entre 0 e 100 km/h",
+  "autoBot.backwardDir": "Retorna o valor de retrocesso a ser comparado com o valor retornado pelo sensor de linha.",
+  "autoBot.equal": "Compara dois valores e retorna verdadeiro se for igual ou falso se não for igual",
+  "autoBot.forward": "Mova o autobot para frente em uma velocidade entre 0 e 100 km/h",
+  "autoBot.forwardDir": "Retorna o valor de avanço a ser comparado com o valor retornado pelo sensor de linha.",
+  "autoBot.left": "Vire o autobot para a esquerda em uma velocidade entre 0 e 100 km/h",
+  "autoBot.leftDir": "Retorna o valor de left para comparar com o valor retornado pelo sensor de linha.",
+  "autoBot.right": "Vire o autobot para a direita em uma velocidade entre 0 e 100 km/h",
+  "autoBot.rightDir": "Retorna o valor da direita para comparar com o valor retornado pelo sensor de linha.",
+  "autoBot.senseLine": "Detecta a linha por meio dos cinco sensores infravermelhos na frente do AutoBot e retorna para frente, para trás, para a esquerda, para a direita ou para parar.",
+  "autoBot.stop": "Pare o autobot",
+  "autoBot.stopDir": "Retorna o valor de parada para comparar com o valor retornado pelo sensor de linha."
+}

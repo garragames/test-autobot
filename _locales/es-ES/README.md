@@ -1,5 +1,5 @@
 
-> Open this page at [https://garragames.github.io/autobot/](https://garragames.github.io/pxt-autobot/)
+> Open this page at [https://garragames.github.io/autobot/](https://garragames.github.io/autobot/)
 
 ## Use as Extension
 
@@ -24,21 +24,17 @@ To edit this repository in MakeCode.
 
 ```blocks
 basic.forever(function () {
-    if (autoBot.equal(autoBot.senseLine(), autoBot.EnumDir.Right)) {
-        autoBot.setSpeed3(autoBot.EnumSpeed.Third)
-        autoBot.turnDirection(autoBot.EnumSteeringwheel.Right)
-    } else {
-        if (autoBot.equal(autoBot.senseLine(), autoBot.EnumDir.Left)) {
-            autoBot.turnDirection(autoBot.EnumSteeringwheel.Left)
-        } else {
-            if (autoBot.equal(autoBot.senseLine(), autoBot.EnumDir.Forward)) {
-                autoBot.turnDirection(autoBot.EnumSteeringwheel.Front)
-            } else {
-                if (autoBot.equal(autoBot.senseLine(), autoBot.EnumDir.Stop)) {
-                    autoBot.stop()
-                }
-            }
-        }
+    if (autoBot.equal(autoBot.senseLine(), autoBot.forwardDir())) {
+        autoBot.forward(86)
+    }
+    if (autoBot.equal(autoBot.senseLine(), autoBot.leftDir())) {
+        autoBot.left(50)
+    }
+    if (autoBot.equal(autoBot.senseLine(), autoBot.rightDir())) {
+        autoBot.right(50)
+    }
+    if (autoBot.equal(autoBot.senseLine(), autoBot.stopDir())) {
+        autoBot.stop()
     }
 })
 ```

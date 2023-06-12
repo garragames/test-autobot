@@ -1,21 +1,37 @@
 {
-    "name": "test autobot",
+    "name": "autobot",
+    "version": "0.0.1",
     "description": "",
     "dependencies": {
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "autobot": "github:garragames/pxt-autobot#master",
-        "Grove": "github:seeed-studio/pxt-grove#v0.5.0"
+        "pxt-sonar": "github:microsoft/pxt-sonar#v0.0.5"
     },
     "files": [
+        "README.md",
+        "EDUCATORS.md",
+        "LICENSE",
         "main.blocks",
         "main.ts",
-        "README.md"
+        "icons.jres",
+        "_locales/autobot-strings.json",
+        "_locales/autobot-jsdoc-strings.json",
+        "_locales/es-ES/autobot-strings.json",
+        "_locales/es-ES/EDUCATORS.md",
+        "_locales/es-ES/README.md",
+        "_locales/es-ES/autobot-jsdoc-strings.json",
+        "_locales/ar/autobot-strings.json",
+        "_locales/ar/EDUCATORS.md",
+        "_locales/ar/autobot-jsdoc-strings.json",
+        "_locales/pt-BR/autobot-strings.json",
+        "_locales/pt-BR/EDUCATORS.md",
+        "_locales/pt-BR/autobot-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
     ],
+    "public": true,
     "targetVersions": {
         "target": "5.0.12",
         "targetId": "microbit"
@@ -23,5 +39,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
