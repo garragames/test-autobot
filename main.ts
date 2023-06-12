@@ -385,14 +385,14 @@ namespace autoBot {
     //% group="Sensors"
     export function senseUltrasonic(): number {
         // send pulse
-        pins.setPull(TRIGGER_PIN, PinPullMode.PullNone);
-        pins.digitalWritePin(TRIGGER_PIN, 0);
+        pins.setPull(1, PinPullMode.PullNone);
+        pins.digitalWritePin(1, 0);
         control.waitMicros(2);
-        pins.digitalWritePin(TRIGGER_PIN, 1);
+        pins.digitalWritePin(1, 1);
         control.waitMicros(5);
-        pins.digitalWritePin(TRIGGER_PIN, 0);
+        pins.digitalWritePin(1, 0);
         // read pulse
-        const d = pins.pulseIn(ECHO_PIN, PulseValue.High, MAX_DISTANCE * 58);
+        const d = pins.pulseIn(0, PulseValue.High, 500 * 58);
         return Math.idiv(d, 58);
     }
 
