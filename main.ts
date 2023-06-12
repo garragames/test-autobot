@@ -22,6 +22,10 @@ namespace autoBot {
     const PARKING_GEAR = 0;
     const REVERSE_GEAR = 20;
 
+    const TRIGGER_PIN  = 2;
+    const ECHO_PIN     = 3;
+    const MAX_DISTANCE = 500
+
     /**
      * Setup variables, pins and enumerations
      */
@@ -369,14 +373,27 @@ namespace autoBot {
     }
 
     /**
-     * Detects distance through ultrasonic sensor
-     * @returns 
+     * Send a ping and get the echo time (in microseconds) as a result
+     * @param trig tigger pin
+     * @param echo echo pin
+     * @param unit desired conversion unit
+     * @param maxCmDistance maximum distance in centimeters (default is 500)
+     * 
      */
-    //% blockId=senseDistance
+    //% blockId=senseUltrasonic
     //% block="ultrasonic sensor"
     //% group="Sensors"
-    export function senseDistance(): number {
-        return 0
+    export function senseUltrasonic(): number {
+        // send pulse
+        pins.setPull(TRIGGER_PIN, PinPullMode.PullNone);
+        pins.digitalWritePin(TRIGGER_PIN, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(TRIGGER_PIN, 1);
+        control.waitMicros(5);
+        pins.digitalWritePin(TRIGGER_PIN, 0);
+        // read pulse
+        const d = pins.pulseIn(ECHO_PIN, PulseValue.High, MAX_DISTANCE * 58);
+        return Math.idiv(d, 58);
     }
 
     /**
@@ -513,29 +530,7 @@ namespace autoBot {
         return sign
     }
 
-    /**
-     * Send a ping and get the echo time (in microseconds) as a result
-     * @param trig tigger pin
-     * @param echo echo pin
-     * @param unit desired conversion unit
-     * @param maxCmDistance maximum distance in centimeters (default is 500)
-     * 
-     */
-    //% blockId=sonarPing
-    //% block="trig %trig echo %echo"
-    //% group="Sensors"
-    export function sonarPing(trig: DigitalPin, echo: DigitalPin, maxCmDistance = 500): number {
-        // send pulse
-        pins.setPull(trig, PinPullMode.PullNone);
-        pins.digitalWritePin(trig, 0);
-        control.waitMicros(2);
-        pins.digitalWritePin(trig, 1);
-        control.waitMicros(5);
-        pins.digitalWritePin(trig, 0);
-        // read pulse
-        const d = pins.pulseIn(echo, PulseValue.High, maxCmDistance * 58);
-        return Math.idiv(d, 58);
-    }
+
 
     // Stop motors
     //_stop()
