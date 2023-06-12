@@ -513,8 +513,6 @@ namespace autoBot {
         return sign
     }
 
-    let distanceBackup: number = 0;
-
     /**
      * Send a ping and get the echo time (in microseconds) as a result
      * @param trig tigger pin
@@ -524,7 +522,7 @@ namespace autoBot {
      * 
      */
     //% blockId=sonarPing
-    //% block="ping trig %trig|echo %echo|unit %unit"
+    //% block="trig %trig echo %echo unit"
     //% group="Sensors"
     export function sonarPing(trig: DigitalPin, echo: DigitalPin, unit: PingUnit, maxCmDistance = 500): number {
         // send pulse
@@ -534,15 +532,9 @@ namespace autoBot {
         pins.digitalWritePin(trig, 1);
         control.waitMicros(5);
         pins.digitalWritePin(trig, 0);
-
         // read pulse
         const d = pins.pulseIn(echo, PulseValue.High, maxCmDistance * 58);
-
-        switch (unit) {
-            case PingUnit.Centimeters: return Math.idiv(d, 58);
-            case PingUnit.Inches: return Math.idiv(d, 148);
-            default: return d;
-        }
+        return Math.idiv(d, 58);
     }
 
     // Stop motors
