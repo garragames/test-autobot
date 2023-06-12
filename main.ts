@@ -522,9 +522,9 @@ namespace autoBot {
      * 
      */
     //% blockId=sonarPing
-    //% block="trig %trig echo %echo unit"
+    //% block="trig %trig echo %echo"
     //% group="Sensors"
-    export function sonarPing(trig: DigitalPin, echo: DigitalPin, unit: PingUnit, maxCmDistance = 500): number {
+    export function sonarPing(trig: DigitalPin, echo: DigitalPin, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
         pins.digitalWritePin(trig, 0);
