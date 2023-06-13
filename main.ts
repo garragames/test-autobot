@@ -379,8 +379,10 @@ namespace autoBot {
      * @param unit desired conversion unit
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
-    //% blockId=sonar_ping block="trig %trig echo %echo"
-    export function ping(trig: DigitalPin, echo: DigitalPin, maxCmDistance = 500): number {
+    //% blockId=senseUltrasonic 
+    //% block="trig %trig echo %echo"
+    //% group="Sensors"
+    export function senseUltrasonic(trig: DigitalPin, echo: DigitalPin, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
         pins.digitalWritePin(trig, 0);
@@ -391,7 +393,8 @@ namespace autoBot {
 
         // read pulse
         const d = pins.pulseIn(echo, PulseValue.High, maxCmDistance * 58);
-        return Math.idiv(d, 58);
+        return d;
+        //return Math.idiv(d, 58);
     }
 
     /**
