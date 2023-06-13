@@ -376,7 +376,6 @@ namespace autoBot {
      * Send a ping and get the echo time (in microseconds) as a result
      * @param trig tigger pin
      * @param echo echo pin
-     * @param unit desired conversion unit
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
     //% blockId=senseUltrasonic 
