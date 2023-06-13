@@ -379,14 +379,14 @@ namespace autoBot {
      * @param unit desired conversion unit
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
-    //% blockId=sonar_ping block="ping trig %trig|echo %echo"
+    //% blockId=sonar_ping block="trig %trig echo %echo"
     export function ping(trig: DigitalPin, echo: DigitalPin, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
         pins.digitalWritePin(trig, 0);
         control.waitMicros(2);
         pins.digitalWritePin(trig, 1);
-        control.waitMicros(5);
+        control.waitMicros(10);
         pins.digitalWritePin(trig, 0);
 
         // read pulse
